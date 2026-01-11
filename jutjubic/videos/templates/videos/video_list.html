@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Videos{% endblock %}
+
+{% block content %}
+
+<h1>All Videos</h1>
+
+<form method="get">
+    <input
+        type="text"
+        name="q"
+        placeholder="Search videos..."
+        value="{{ query }}"
+    >
+    <button type="submit">Search</button>
+</form>
+
+<hr>
+
+
+{% for video in page_obj %}
+    <div>
+        <h3>
+            <a href="{% url 'videos:detail' video.slug %}">
+                {{ video.title }}
+            </a>
+        </h3>
+
+        {% if video.thumbnail %}
+            <img src="{{ video.thumbnail.url }}" width="200">
+        {% endif %}
+
+        <p>Uploaded by <a href="{% url 'profiles:detail' video.author.username %}">
+                          {{ video.author.username }}</a>
+</p>
+        <hr>
+    </div>
+{% empty %}
+    <p>No videos uploaded yet.</p>
+{% endfor %}
+
+<hr>
+
+<div>
+    {% if page_obj.has_previous %}
+        <a href="?q={{ query }}&page={{ page_obj.previous_page_number }}">
+            Previous
+        </a>
+    {% endif %}
+
+    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+
+    {% if page_obj.has_next %}
+        <a href="?q={{ query }}&page={{ page_obj.next_page_number }}">
+            Next
+        </a>
+    {% endif %}
+</div>
+
+
+{% endblock %}
+

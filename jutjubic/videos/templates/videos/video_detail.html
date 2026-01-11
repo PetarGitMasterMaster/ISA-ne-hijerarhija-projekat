@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}{{ video.title }}{% endblock %}
+
+{% block content %}
+
+<h1>{{ video.title }}</h1>
+
+<p>{{ video.description }}</p>
+
+{% if video.thumbnail %}
+    <img src="{{ video.thumbnail.url }}" width="300">
+{% endif %}
+
+{% if video.video %}
+    <video controls width="600">
+        <source src="{{ video.video.url }}" type="video/mp4">
+    </video>
+{% endif %}
+
+<p>Uploaded by <a href="{% url 'profiles:detail' video.author.username %}">
+    {{ video.author.username }} </a>
+</p>
+<p>{{ video.created_at }}</p>
+<p>Views: {{ video.views }}</p>
+
+<p>Likes: {{ video.likes.count }}</p>
+
+{% if user.is_authenticated %}
+    <form action="{% url 'videos:like' video.slug %}" method="post">
+        {% csrf_token %}
+        {% if user in video.likes.all %}
+            <button type="submit">Unlike</button>
+        {% else %}
+            <button type="submit">Like</button>
+        {% endif %}
+    </form>
+{% else %}
+    <p><a href="{% url 'login' %}">Log in</a> to like this video.</p>
+{% endif %}
+
+
+{% if user == video.author %}
+    <p>
+        <a href="{% url 'videos:edit' video.slug %}">Edit</a> |
+        <a href="{% url 'videos:delete' video.slug %}">Delete</a>
+    </p>
+{% endif %}
+
+<hr>
+<h3>Comments</h3>
+
+{% for comment in comments %}
+    <div style="margin-bottom: 10px;">
+        <strong>{{ comment.author.username }}</strong>
+        <small>{{ comment.created_at|date:"M d, Y H:i" }}</small>
+
+        <p>{{ comment.content }}</p>
+
+        {% if user == comment.author %}
+
+            <a href="{% url 'comments:delete' comment.id %}">Delete</a>
+            
+        {% endif %}
+    </div>
+{% empty %}
+    <p>No comments yet.</p>
+{% endfor %}
+
+
+{% if user.is_authenticated %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Post comment</button>
+    </form>
+{% else %}
+    <p>
+        <a href="{% url 'login' %}">Login</a> to comment.
+    </p>
+{% endif %}
+
+
+{% endblock %}
