@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block title %}Videos{% endblock %}
+
+{% block content %}
+
+<h1>Videos Near You</h1>
+
+
+<form method="get" id="search-form">
+    <input
+        type="text"
+        name="q"
+        placeholder="Search videos..."
+        value="{{ query }}"
+    />
+
+    <label>
+        Radius (km):
+        <input
+            type="number"
+            id="radius"
+            name="radius"
+            min="1"
+            max="100"
+            value="{{ request.GET.radius|default:5 }}"
+        />
+    </label>
+
+    <input type="hidden" name="lat" id="lat">
+    <input type="hidden" name="lng" id="lng">
+
+    <button type="submit">Search</button>
+</form>
+
+<hr>
+
+
+<div id="videos-container">
+
+{% for video in page_obj %}
+    <div class="video-item">
+        <h3>
+            <a href="{% url 'videos:detail' video.slug %}">
+                {{ video.title }}
+            </a>
+        </h3>
+
+        {% if video.thumbnail %}
+            <img src="{{ video.thumbnail.url }}" width="200">
+        {% endif %}
+
+        <p>
+            Uploaded by
+            <a href="{% url 'profiles:detail' video.author.username %}">
+                {{ video.author.username }}
+            </a>
+        </p>
+
+        <p>Views: {{ video.views }}</p>
+        <p>Likes: {{ video.likes.count }}</p>
+
+        {% if video.distance %}
+            <p>Distance: {{ video.distance.km|floatformat:2 }} km</p>
+        {% endif %}
+
+        {% if video.popularity %}
+            <p><strong>Popularity:</strong> {{ video.popularity|floatformat:2 }}</p>
+        {% endif %}
+
+        <hr>
+    </div>
+{% empty %}
+    <p>No videos found.</p>
+{% endfor %}
+
+</div>
+
+
+{% if page_obj.paginator.num_pages > 1 %}
+<div>
+    {% if page_obj.has_previous %}
+        <a href="?q={{ query }}&page={{ page_obj.previous_page_number }}">Previous</a>
+    {% endif %}
+
+    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+
+    {% if page_obj.has_next %}
+        <a href="?q={{ query }}&page={{ page_obj.next_page_number }}">Next</a>
+    {% endif %}
+</div>
+{% endif %}
+
+
+<script>
+(function () {
+    const latInput = document.getElementById("lat");
+    const lngInput = document.getElementById("lng");
+
+    function submitWithCoords(lat, lng) {
+        latInput.value = lat;
+        lngInput.value = lng;
+        document.getElementById("search-form").submit();
+    }
+
+    function ipFallback() {
+        fetch("https://ipapi.co/json/")
+            .then(res => res.json())
+            .then(data => {
+                if (data.latitude && data.longitude) {
+                    submitWithCoords(data.latitude, data.longitude);
+                }
+            })
+            .catch(() => {
+                console.warn("IP location failed.");
+            });
+    }
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            position => {
+                submitWithCoords(
+                    position.coords.latitude,
+                    position.coords.longitude
+                );
+            },
+            error => {
+                console.warn("Geolocation denied, using IP fallback.");
+                ipFallback();
+            },
+            { timeout: 5000 }
+        );
+    } else {
+        ipFallback();
+    }
+})();
+</script>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
