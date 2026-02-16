@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block title %}{{ video.title }}{% endblock %}
+
+{% block content %}
+
+<h1>{{ video.title }}</h1>
+<p>{{ video.description }}</p>
+
+{% if video.thumbnail %}
+    <img src="{{ video.thumbnail.url }}" width="300">
+{% endif %}
+
+{% if video.video %}
+<video id="player" controls width="700" controls muted autoplay playsinline preload="auto">
+    <source src="{{ video.video.url }}" type="video/mp4">
+</video>
+{% endif %}
+
+<p>
+    Uploaded by
+    <a href="{% url 'profiles:detail' video.author.username %}">{{ video.author.username }}</a>
+</p>
+
+<p>Uploaded at: {{ video.created_at|date:"M d, Y H:i" }}</p>
+<p>Views: {{ video.views }}</p>
+<p>Likes: {{ video.likes.count }}</p>
+
+{% if video.popularity %}
+    <p><strong>Popularity:</strong> {{ video.popularity|floatformat:2 }}</p>
+{% endif %}
+
+{% if user.is_authenticated %}
+    <form action="{% url 'videos:like' video.slug %}" method="post">
+        {% csrf_token %}
+        {% if is_liked %}
+            <button type="submit">Unlike</button>
+        {% else %}
+            <button type="submit">Like</button>
+        {% endif %}
+    </form>
+{% else %}
+    <p><a href="{% url 'login' %}">Log in</a> to like this video.</p>
+{% endif %}
+
+{% if user == video.author %}
+    <p>
+        <a href="{% url 'videos:edit' video.slug %}">Edit</a> |
+        <a href="{% url 'videos:delete' video.slug %}">Delete</a>
+    </p>
+{% endif %}
+
+<hr>
+
+<h3>Comments</h3>
+
+{% for comment in comments %}
+    <div style="margin-bottom: 12px;">
+        <strong>{{ comment.author.username }}</strong>
+        <small>{{ comment.created_at|date:"M d, Y H:i" }}</small>
+        <p>{{ comment.content }}</p>
+        {% if user == comment.author %}
+            <a href="{% url 'comments:delete' comment.id %}">Delete</a>
+        {% endif %}
+    </div>
+{% empty %}
+    <p>No comments yet.</p>
+{% endfor %}
+
+{% if user.is_authenticated %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Post comment</button>
+    </form>
+{% else %}
+    <p><a href="{% url 'login' %}">Login</a> to comment.</p>
+{% endif %}
+
+{% if video.scheduled_at %}
+<div id="countdown-box" style="
+    padding: 16px;
+    border: 2px dashed orange;
+    border-radius: 8px;
+    max-width: 400px;
+">
+    <h3>⏰ Going live in</h3>
+    <p id="countdown" style="font-size: 1.6em; font-weight: bold;">--</p>
+</div>
+
+<div id="debug-log" style="background: black; color: #00ff00; padding: 10px; margin-top: 5px; font-family: monospace; min-height: 50px; display: block !important;">
+        Console initializing...
+    </div>
+</div>
+
+<script>
+(function() {
+    const player = document.getElementById('player');
+    const logger = document.getElementById('debug-log');
+    const djangoOffset = parseInt("{{ offset_seconds }}") || 0;
+    const pageLoadTime = Date.now();
+
+    function log(msg) {
+        logger.innerHTML += "<br>> " + msg;
+        console.log("StreamSync:", msg);
+    }
+
+    function getLiveTime() {
+        return djangoOffset + ((Date.now() - pageLoadTime) / 1000);
+    }
+
+    let hasSynced = false;
+
+  
+    function tryInitialSync() {
+        if (hasSynced) return;
+
+        const target = getLiveTime();
+        
+  
+        if (player.readyState >= 3) {
+            log("High ReadyState detected. Jumping to " + target.toFixed(1));
+            player.currentTime = target;
+            hasSynced = true; 
+        } else {
+            
+            log("Buffering... waiting to jump.");
+            setTimeout(tryInitialSync, 500);
+        }
+    }
+
+  
+    player.addEventListener('loadedmetadata', tryInitialSync);
+
+    player.onplay = function() {
+        const live = getLiveTime();
+        const diff = Math.abs(player.currentTime - live);
+        
+        if (diff > 3) {
+            log("Syncing on Play. Drift: " + diff.toFixed(1));
+            player.currentTime = live;
+        }
+    };
+
+    if (player.readyState >= 1) {
+        tryInitialSync();
+    }
+})();
+</script>
+{% endif %}
+
+{% endblock %}

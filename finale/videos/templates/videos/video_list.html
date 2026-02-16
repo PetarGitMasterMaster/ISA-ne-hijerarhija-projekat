@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block title %}Videos{% endblock %}
+
+{% block content %}
+
+<h1>Videos</h1>
+
+{% if top_videos %}
+<h2>Most Popular Videos</h2>
+<ul>
+{% for video in top_videos %}
+    <li><a href="{% url 'videos:detail' video.slug %}">{{ video.title }}</a></li>
+{% endfor %}
+</ul>
+<hr>
+{% endif %}
+
+
+<form method="get" id="search-form">
+    <input
+        type="text"
+        name="q"
+        placeholder="Search videos..."
+        value="{{ query }}"
+    />
+
+    <label>
+        Radius (km):
+        <input
+            type="number"
+            id="radius"
+            name="radius"
+            min="1"
+            max="100"
+            value="{{ radius_km|default:5 }}"
+        />
+    </label>
+
+    <input type="hidden" name="lat" id="lat" value="{{ point.y|default:'' }}">
+    <input type="hidden" name="lng" id="lng" value="{{ point.x|default:'' }}">
+
+    <button type="submit">Search</button>
+</form>
+
+<hr>
+
+{% for video in page_obj %}
+    <div class="video-item">
+        <h3>
+            <a href="{% url 'videos:detail' video.slug %}">
+                {{ video.title }}
+            </a>
+        </h3>
+
+        {% if video.thumbnail %}
+            <img src="{{ video.thumbnail.url }}" width="200">
+        {% endif %}
+
+        <p>
+            Uploaded by
+            <a href="{% url 'profiles:detail' video.author.username %}">
+                {{ video.author.username }}
+            </a>
+        </p>
+
+        <p>Views: {{ video.views }}</p>
+        <p>Likes: {{ video.likes.count }}</p>
+
+        {% if video.distance %}
+            <p>Distance: {{ video.distance.km|floatformat:2 }} km</p>
+        {% endif %}
+
+        {% if video.popularity %}
+            <p><strong>Popularity:</strong> {{ video.popularity|floatformat:2 }}</p>
+        {% endif %}
+
+        <hr>
+    </div>
+{% empty %}
+    <p>No videos found.</p>
+{% endfor %}
+
+{% if page_obj.paginator.num_pages > 1 %}
+<div>
+    {% if page_obj.has_previous %}
+        <a href="?q={{ query }}&radius={{ radius_km }}&page={{ page_obj.previous_page_number }}">
+            Previous
+        </a>
+    {% endif %}
+
+    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+
+    {% if page_obj.has_next %}
+        <a href="?q={{ query }}&radius={{ radius_km }}&page={{ page_obj.next_page_number }}">
+            Next
+        </a>
+    {% endif %}
+</div>
+{% endif %}
+
+<script>
+(function () {
+    const latInput = document.getElementById("lat");
+    const lngInput = document.getElementById("lng");
+
+    // Prevent infinite auto-submit
+    if (latInput.value && lngInput.value) return;
+
+    function submitWithCoords(lat, lng) {
+        latInput.value = lat;
+        lngInput.value = lng;
+        document.getElementById("search-form").submit();
+    }
+
+    if (!navigator.geolocation) return;
+
+    navigator.geolocation.getCurrentPosition(
+        position => {
+            submitWithCoords(
+                position.coords.latitude,
+                position.coords.longitude
+            );
+        },
+        () => {
+            console.warn("Geolocation denied.");
+        },
+        { timeout: 5000 }
+    );
+})();
+</script>
+
+{% endblock %}

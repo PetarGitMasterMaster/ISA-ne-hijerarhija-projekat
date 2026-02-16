@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ video.title }}</h1>
+
+<p>This video is scheduled.</p>
+<p>Available at: <strong>{{ video.scheduled_at }}</strong></p>
+
+<p id="countdown"></p>
+
+<script>
+    const target = new Date("{{ video.scheduled_at|date:'c' }}").getTime();
+
+    setInterval(() => {
+        const now = new Date().getTime();
+        const diff = Math.max(0, target - now);
+
+        const mins = Math.floor(diff / 60000);
+        const secs = Math.floor((diff % 60000) / 1000);
+
+        document.getElementById("countdown").innerText =
+            `Starts in ${mins}m ${secs}s`;
+
+        if (diff <= 0) location.reload();
+    }, 1000);
+</script>
+{% endblock %}

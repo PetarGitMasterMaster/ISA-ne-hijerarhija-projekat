@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Upcoming Videos{% endblock %}
+
+{% block content %}
+<h1>⏰ Upcoming Videos</h1>
+
+{% for video in videos %}
+    <div style="margin-bottom: 20px;">
+        <h3>{{ video.title }}</h3>
+        <p>
+            By {{ video.author.username }} <br>
+            Starts at {{ video.scheduled_at|date:"M d, Y H:i" }}
+        </p>
+    </div>
+{% empty %}
+    <p>No upcoming videos.</p>
+{% endfor %}
+{% endblock %}
