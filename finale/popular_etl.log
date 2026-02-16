@@ -1,0 +1,509 @@
+/bin/sh: 1: /home/chinkichi/jutjubic-venv/bin/activate: Permission denied
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Traceback (most recent call last):
+  File "/home/chinkichi/jutjubic/manage.py", line 22, in <module>
+    main()
+  File "/home/chinkichi/jutjubic/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/base.py", line 453, in execute
+    self.check()
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/base.py", line 485, in check
+    all_issues = checks.run_checks(
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/urls/resolvers.py", line 494, in check
+    for pattern in self.url_patterns:
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/urls/resolvers.py", line 715, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/urls/resolvers.py", line 708, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/chinkichi/jutjubic/jutjubic/urls.py", line 30, in <module>
+    path("videos/", include("videos.urls")),
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/chinkichi/jutjubic/videos/urls.py", line 19, in <module>
+    from .monitoring import metrics_view
+ImportError: cannot import name 'metrics_view' from 'videos.monitoring' (/home/chinkichi/jutjubic/videos/monitoring.py)
+Traceback (most recent call last):
+  File "/home/chinkichi/jutjubic/manage.py", line 22, in <module>
+    main()
+  File "/home/chinkichi/jutjubic/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/base.py", line 453, in execute
+    self.check()
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/base.py", line 485, in check
+    all_issues = checks.run_checks(
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/urls/resolvers.py", line 494, in check
+    for pattern in self.url_patterns:
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/urls/resolvers.py", line 715, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/urls/resolvers.py", line 708, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/chinkichi/jutjubic/jutjubic/urls.py", line 30, in <module>
+    path("videos/", include("videos.urls")),
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/chinkichi/jutjubic/videos/urls.py", line 19, in <module>
+    from .monitoring import metrics_view
+ImportError: cannot import name 'metrics_view' from 'videos.monitoring' (/home/chinkichi/jutjubic/videos/monitoring.py)
+Traceback (most recent call last):
+  File "/home/chinkichi/jutjubic/manage.py", line 22, in <module>
+    main()
+  File "/home/chinkichi/jutjubic/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/base.py", line 453, in execute
+    self.check()
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/base.py", line 485, in check
+    all_issues = checks.run_checks(
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/urls/resolvers.py", line 494, in check
+    for pattern in self.url_patterns:
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/urls/resolvers.py", line 715, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/urls/resolvers.py", line 708, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/chinkichi/jutjubic/jutjubic/urls.py", line 30, in <module>
+    path("videos/", include("videos.urls")),
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/chinkichi/jutjubic/videos/urls.py", line 19, in <module>
+    from .monitoring import metrics_view
+ImportError: cannot import name 'metrics_view' from 'videos.monitoring' (/home/chinkichi/jutjubic/videos/monitoring.py)
+Traceback (most recent call last):
+  File "/home/chinkichi/jutjubic/manage.py", line 22, in <module>
+    main()
+  File "/home/chinkichi/jutjubic/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/base.py", line 453, in execute
+    self.check()
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/base.py", line 485, in check
+    all_issues = checks.run_checks(
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/urls/resolvers.py", line 494, in check
+    for pattern in self.url_patterns:
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/urls/resolvers.py", line 715, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/urls/resolvers.py", line 708, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/chinkichi/jutjubic/jutjubic/urls.py", line 30, in <module>
+    path("videos/", include("videos.urls")),
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/chinkichi/jutjubic/videos/urls.py", line 19, in <module>
+    from .monitoring import metrics_view
+ImportError: cannot import name 'metrics_view' from 'videos.monitoring' (/home/chinkichi/jutjubic/videos/monitoring.py)
+Traceback (most recent call last):
+  File "/home/chinkichi/jutjubic/manage.py", line 22, in <module>
+    main()
+  File "/home/chinkichi/jutjubic/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/base.py", line 453, in execute
+    self.check()
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/base.py", line 485, in check
+    all_issues = checks.run_checks(
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/urls/resolvers.py", line 494, in check
+    for pattern in self.url_patterns:
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/urls/resolvers.py", line 715, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/urls/resolvers.py", line 708, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/chinkichi/jutjubic/jutjubic/urls.py", line 30, in <module>
+    path("videos/", include("videos.urls")),
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/chinkichi/jutjubic/videos/urls.py", line 19, in <module>
+    from .monitoring import metrics_view
+ImportError: cannot import name 'metrics_view' from 'videos.monitoring' (/home/chinkichi/jutjubic/videos/monitoring.py)
+Traceback (most recent call last):
+  File "/home/chinkichi/jutjubic/manage.py", line 22, in <module>
+    main()
+  File "/home/chinkichi/jutjubic/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/base.py", line 453, in execute
+    self.check()
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/base.py", line 485, in check
+    all_issues = checks.run_checks(
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/urls/resolvers.py", line 494, in check
+    for pattern in self.url_patterns:
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/urls/resolvers.py", line 715, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/urls/resolvers.py", line 708, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/chinkichi/jutjubic/jutjubic/urls.py", line 30, in <module>
+    path("videos/", include("videos.urls")),
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/chinkichi/jutjubic/videos/urls.py", line 19, in <module>
+    from .monitoring import metrics_view
+ImportError: cannot import name 'metrics_view' from 'videos.monitoring' (/home/chinkichi/jutjubic/videos/monitoring.py)
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Traceback (most recent call last):
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 270, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/contrib/gis/db/backends/postgis/base.py", line 112, in get_new_connection
+    connection = super().get_new_connection(conn_params)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/db/backends/postgresql/base.py", line 269, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "localhost" (127.0.0.1), port 5433 failed: FATAL:  sorry, too many clients already
+connection to server at "localhost" (127.0.0.1), port 5433 failed: FATAL:  sorry, too many clients already
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/chinkichi/jutjubic/manage.py", line 22, in <module>
+    main()
+  File "/home/chinkichi/jutjubic/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/chinkichi/jutjubic/videos/management/commands/popular_videos.py", line 43, in handle
+    for video in VideoPost.objects.all():
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/db/models/query.py", line 398, in __iter__
+    self._fetch_all()
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1558, in execute_sql
+    cursor = self.connection.cursor()
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 330, in cursor
+    return self._cursor()
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 306, in _cursor
+    self.ensure_connection()
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    with self.wrap_database_errors:
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 270, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/contrib/gis/db/backends/postgis/base.py", line 112, in get_new_connection
+    connection = super().get_new_connection(conn_params)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/django/db/backends/postgresql/base.py", line 269, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/home/chinkichi/jutjubic-venv/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "localhost" (127.0.0.1), port 5433 failed: FATAL:  sorry, too many clients already
+connection to server at "localhost" (127.0.0.1), port 5433 failed: FATAL:  sorry, too many clients already
+
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
+Popular videos ETL completed successfully.
